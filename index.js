@@ -87,6 +87,20 @@ const questions =() => {
         },
     },
     {
+        type: "checkbox",
+        name: "licenses",
+        message: "What license(s) do you want to include?",
+        choices: [
+            "MIT",
+            "GPL 3.0",
+            "GPL 2.0",
+            "Apache 2.0",
+            "BSD 3",
+            "BSD 2",
+            "LGPL 3.0"
+        ],
+    },
+    {
         type: "input", 
         name: "github", 
         message: "What is your GitHub username? (Required)",
@@ -120,8 +134,9 @@ const dummyInfo = {
     description: "Run as fast as you can",
     instructions: "Here are some instructions for running the program, use it as you wish",
     usage: "Use it as you wish, just don't kill any dwarfs",
-    contributing: "Contribute to the program if you want to, but I'm not responsible for any death wishes",
+    contributing: "",
     testing: "Just run it, and don't ask me questions!",
+    license: ["MIT"],
     github: "mpityo",
     email: "mpityo@gmail.com"
 };

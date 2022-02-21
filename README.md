@@ -15,6 +15,8 @@ npm install
 node app.js
 ```
 README will be created in the <heavy>./dist/</heavy> directory
+<br>
+See [this](https://drive.google.com/file/d/1vCSKaRb2LrJblu-u1ehnl5Y6oLJOVhUT/view?usp=sharing) link for a walkthrough, if needed.
 
 ## :memo: Features
  - Lightweight and responsive

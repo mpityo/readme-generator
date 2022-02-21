@@ -88,7 +88,7 @@ const questions =() => {
     },
     {
         type: "checkbox",
-        name: "licenses",
+        name: "license",
         message: "What license(s) do you want to include?",
         choices: [
             "MIT",
@@ -162,10 +162,10 @@ function writeToFile(fileName, data) {
 function init() {
     questions()
     .then((answers) => {
-        return generateMarkdown(dummyInfo);
+        return generateMarkdown(answers);
     })
     .then((markdownInfo) => {
-        return writeToFile("TITLE_README", markdownInfo);
+        return writeToFile("README", markdownInfo);
     })
     .then((writeFileResponse) => {
         console.log(writeFileResponse);
@@ -177,4 +177,3 @@ function init() {
 
 // Function call to initialize app
 init();
-//console.log(generateMarkdown(dummyInfo));

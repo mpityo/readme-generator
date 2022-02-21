@@ -46,18 +46,22 @@ function renderLicenseLink(license) {
 
 function renderLicenseBadge(license) {
   let string = "";
-  license.forEach((element) => {
+  if (license.length != 0) {
+    license.forEach((element) => {
     string += `[![${element}](${getLicenseBadge(element)})](${renderLicenseLink(element)})  
 `;
   });
   return `${string}
   `;
+  } else {
+    return "";
+  }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license != []) {
+  if (license.length != 0) {
     let string = `## License
 `;
     if (license.length > 1) {
@@ -72,7 +76,7 @@ function renderLicenseSection(license) {
       return string;
     } else {
       string += 
-`This project is licensed under the terms of the [${license}](${renderLicenseLink(license)}) license`;
+`This project is licensed under the terms of the [${license[0]}](${renderLicenseLink(license[0])}) license`;
       return string;
     }
   }
@@ -84,7 +88,9 @@ function renderInstallationSection(install) {
   if (!install) {
     return "";
   } else {
-    return `## Installation
+    return `
+
+## Installation
 ${install}`;
   }
 }
@@ -92,7 +98,9 @@ function renderUsageSection(usage) {
   if (!usage) {
     return "";
   } else {
-    return `## Usage
+    return `
+
+## Usage
 ${usage}`;
   }
 }
@@ -100,8 +108,11 @@ function renderContributingSection(contribute) {
   if (contribute === "") {
     return "";
   } else {
-    return `## Contributing
-${contribute}`;
+    return `
+
+## Contributing
+${contribute}
+`;
   }
 }
 
@@ -117,7 +128,7 @@ function renderTableOfContents(data) {
     arr.push("[Contributing](#contributing)");
   
   arr.push("[Tests](#tests)");
-  if (renderLicenseSection(data.license) !== "")
+  if (renderLicenseSection(data.license).length != 0)
     arr.push("[License](#license)");
   arr.push("[Questions](#questions)");
 
@@ -131,6 +142,7 @@ ${index+1}. ${element}`;
 
 // Create a function to generate markdown for README
 function generateMarkdown(data) {
+  console.log(data.license);
   return `# ${data.title}
 
 ${renderLicenseBadge(data.license)}
@@ -140,22 +152,14 @@ ${renderTableOfContents(data)}
 
 ## Description
 ${data.description}
-
-${renderInstallationSection(data.instructions)}
-
-${renderUsageSection(data.usage)}
-
-${renderContributingSection(data.contributing)}
-
+${renderInstallationSection(data.instructions)}${renderUsageSection(data.usage)}${renderContributingSection(data.contributing)}
 ## Tests
-${data.testing}
-
-${renderLicenseSection(data.license)}
+${data.testing}${renderLicenseSection(data.license)}
 
 ## Questions
-You may reach me at GitHub under [${data.github}]('https://github.com/${data.github}')
+You may reach me at GitHub under [${data.github}](https://github.com/${data.github})
 <br>
-You can also email me at [${data.email}]('mailto:${data.email}')
+You can also email me at [${data.email}](mailto:${data.email})
 `;
 }
 

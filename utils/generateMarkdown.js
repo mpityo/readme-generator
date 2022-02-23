@@ -62,7 +62,9 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license.length != 0) {
-    let string = `## License
+    let string = `
+    
+## License
 `;
     if (license.length > 1) {
       string += 

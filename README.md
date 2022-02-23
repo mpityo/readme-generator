@@ -12,7 +12,7 @@ npm install
 ```
 4. Run app through node and fill out required sections:
 ```
-node app.js
+node index.js
 ```
 README will be created in the <heavy>./dist/</heavy> directory
 
@@ -36,10 +36,8 @@ Project is fully open source: explore the code and upgrade away!
 
 ![View of the command line that prompts the user for information](./images/example_user_input.png "Command Prompt")
 ________________________________________________________
-<br>
 
 ![Raw Readme file](./images/readme_raw.png "Raw README")
 ________________________________________________________
-<br>
 
 ![Final Readme look](./images/readme_final.png "Final look of README")
